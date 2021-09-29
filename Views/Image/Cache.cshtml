@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Cache";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--
+    This view will be used as cache view to show already 
+    resized image instead of uploading and resizing it again.
+    This View will redirect to Index action of Image controller as provided in BeginForm
+-->
+
+@using (Html.BeginForm("Index", "Image", new { enctype = "multipart/form-data" }))
+{
+    <fieldset class="form-horizontal">
+        <div class="form-group">
+            <h2>Image already exist in container</h2>
+
+            <h3>Resized Image</h3>
+            <br />
+            <img src="@ViewBag.thumbnailImage" alt="Resized Uploaded=>@ViewBag.thumbnailImage" title="Resized Uploaded" />
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Home page" class="btn" />
+            </div>
+        </div>
+    </fieldset>
+}

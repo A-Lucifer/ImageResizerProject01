@@ -1,0 +1,32 @@
+﻿@model string
+@{
+    ViewBag.Title = "Latest Image";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--
+    This view will show result of resized image.
+    Original and resized image will be shown.
+-->
+
+@using (Html.BeginForm("Index", "Image", new { enctype = "multipart/form-data" }))
+{
+    <fieldset class="form-horizontal">
+        <div class="form-group">
+            <br />
+            <h3>Original Uploaded Image</h3>
+            <br />
+            <img src="@ViewBag.originalImage" alt="OriginalImage=>@ViewBag.originalImage" title="Original Uploaded" />
+            <br />
+            <h3>Resized Image</h3>
+            <br />
+            <img src="@ViewBag.thumbnailImage" alt="Resized Uploaded=>@ViewBag.thumbnailImage" title="Resized Uploaded" />
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Home page" class="btn" />
+            </div>
+        </div>
+    </fieldset>
+}
